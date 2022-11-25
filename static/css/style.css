@@ -1,0 +1,26 @@
+body::before {
+    display: block;
+    content: '';
+    height: 60px
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+}
+
+td {
+    padding: 0 1em;
+}
+
+a[href^="http"] {
+    background: url('../media/external-link-alt-solid.svg') no-repeat 100% 0;
+    background-size: 16px 16px;
+    padding-right: 19px;
+}
+
+form i {
+    float: right;
+    margin-right: 7px;
+    cursor: pointer;
+}
