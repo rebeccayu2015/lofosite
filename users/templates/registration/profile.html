@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+<title>Profile</title>
+<style>
+  #div_id_password {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <h1>Profile</h1>
+  <form class="needs-validation" name="login" action="" method="POST" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <p>Need to update your password? <a href={% url 'change_password' %}>Change password.</a></p>
+    <button class="btn btn-primary" type="submit">Update Profile</button>
+  </form>
+</div>
+
+<script src={% static 'js/profile.js' %}></script>
+{% endblock %}
