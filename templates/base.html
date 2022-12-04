@@ -9,6 +9,180 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <style>
+
+      body{
+         background: #EBF2FA
+      }
+
+      #page-title{
+        position: absolute;
+        left: 112px;
+        top: 140px;
+
+        font-family: 'Lora';
+        font-style: normal;
+        font-size: 42px;
+        line-height: 72px;
+        font-weight: 600;
+
+        color: #1F1300;
+      }
+
+      #page-subhead{
+        position: absolute;
+        width: 1121px;
+        right: 53px;
+        left: 112px;
+        top: 240px;
+
+        font-family: 'Nunito Sans', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 38px;
+
+        color: #1F1300;
+      }
+      
+      .item-form{
+        margin-top: 300px;
+        margin-left: 112px;
+        width: 1175px;
+        height: 350px;
+
+        background: #FFFFFF;
+        font-family: 'Nunito', sans-serif;
+
+      }
+
+      .item-form input{
+        margin: 25px 25px 5px 25px;
+        width: 250px;
+        height: 50px;
+
+        padding-left: 10px;
+      }
+
+      #item-descrip{
+        width:500px;
+        height: 150px;
+      }
+
+      #form-submit{
+
+      }
+
+      #item-card{
+        position: absolute;
+        width: 625px;
+        height: 350px;
+        left: 653px;
+        top: 375px; 
+
+        background: #FFFFFF;
+        font-family: 'Nunito', sans-serif;
+
+        margin-right: 10px;
+
+      }
+
+      #item-head{
+        /* 
+        position: absolute;
+        width: 416px;
+        height: 53px;
+        left: 703px;
+        top: 464px;
+
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        */ 
+
+        font-size: 24px;
+        line-height: 49px; 
+        font-weight: bolder;
+
+        display: inline-block;
+
+        color: #000000;
+
+        padding-left: 50px;
+        padding-top: 25px;
+        padding-bottom: 2px;
+      }
+
+      .item-sect{
+        /*
+        position: absolute;
+        width: 416px;
+        height: 53px;
+        left: 703px;
+        top: 538px;
+
+        font-family: 'Nunito Sans', sans-serif;
+        font-style: normal;
+
+        */ 
+        font-size: 18px;
+        line-height: 33px;
+        
+        padding-bottom: 1px;
+
+        color: #000000;
+
+        padding-left: 50px;
+        padding-right: 100px;
+
+
+      }
+
+      #claim-button{
+        /*
+        position: absolute;
+        left: 1143px;
+        top: 468px;
+        */
+
+        width: 110px;
+        height: 40px;
+        
+        background: #34984A;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        border-width: 0px;
+
+        float: right;
+
+        color: white;
+        font-family: 'Nunito', sans-serif;
+
+        margin-top: 25px;
+        margin-right: 25px;
+
+
+      } 
+
+      #claim-button:hover{
+        background: #256A34;
+      }
+
+      #item-image img {
+        position: absolute;
+        width: 550px;
+        height: 350px;
+        top: 375px;
+        left: 112px;
+
+      }
+      
+    </style>
+
     {% block title %}
     {% endblock %}
   </head>

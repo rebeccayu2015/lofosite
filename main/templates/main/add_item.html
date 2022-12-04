@@ -5,13 +5,38 @@
 {% endblock %}
 
 {% block content %}
-<h1>add item page</h1>
-<p>ew we</p>
-<form>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" value="poop"><br>
 
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" value="face">
+
+<h1 id="page-title">
+  Add An Item
+</h1>
+
+<p id= "page-subhead">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+</p>
+
+<div class="item-form">
+  <form>
+        <input type="text" id ="item-name" name="item-name" placeholder="What's the item?">
+
+        <input type="text" id="location-found" name="location-found" placeholder="Where'd you find it?">
+
+        <input type="text" id="location-left" name="location-left" placeholder="Where'd you leave it?">
+
+        <br>
+
+        <!-- 
+
+        <input type="text" id="item-descrip" name="item-descrip" placeholder="Any important details?">
+
+        <input type="file" accept="image/png, image/jpeg, image/jpg">
+
+        <input type="submit" id="form-submit">
+
+        -->
+
   </form>
+</div>
+
 {% endblock %}
