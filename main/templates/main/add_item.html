@@ -31,18 +31,27 @@
         
         <div id="form-col-2">
           <label for="item-descrip"> Item Description:</label><br>
-          <input type="text" id="item-descrip" name="item-descrip" placeholder="Any important details?">
+          <textarea id="item-descrip" name="item-descrip" rows="20" cols="50" style="resize:none;" placeholder="Any important details?"></textarea>
         </div> 
 
         <div id="form-col-3"> 
-          <label for="item-image"> Item Description:</label><br>
-          <input type="file" accept="image/png, image/jpeg, image/jpg" id="item-image" name="item-image">
+
+          <label id="special-label"> Item Image:</label><br>
+
+          <label for="item-image" class="drop-container">
+            <span class="drop-title">Drop files here</span>
+            or
+            <input type="file" accept="image/png, image/jpeg, image/jpg" id="special-input" name="item-image">
+          </label>
+
           
         </div>
 
-        <!-- <input type="submit" id="form-submit"> -->
+        <button type="submit" id="form-submit-button"> ✓ </button> 
 
   </form>
 </div>
+
+<button title = "Back to item list!" id="form-back-button"> ← </button>
 
 {% endblock %}
