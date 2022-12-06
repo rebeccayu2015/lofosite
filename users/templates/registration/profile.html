@@ -19,7 +19,11 @@
   <form class="needs-validation" name="login" action="" method="POST" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
-    <p>Need to update your password? <a href={% url 'change_password' %}>Change password.</a></p>
+    
+    {% comment %}
+      <p>Need to update your password? <a href={% url 'change_password' %}>Change password.</a></p>
+    {% endcomment %}
+
     <button class="btn btn-primary" type="submit">Update Profile</button>
   </form>
 </div>
