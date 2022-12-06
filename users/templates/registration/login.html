@@ -22,7 +22,11 @@
     {{ form|crispy }}
     <button class="btn btn-primary" type="submit">Login</button>
     <p>Don't have an account? <a href="{% url 'sign_up' %}">Sign up</a>.</p>
-    <p>Forgot password? <a href="{% url 'reset_password' %}">Reset password</a>.</p>
+    
+    {% comment %}
+      <p>Forgot password? <a href="{% url 'reset_password' %}">Reset password</a>.</p>
+    {% endcomment %}
+
   </form>
 </div>
 

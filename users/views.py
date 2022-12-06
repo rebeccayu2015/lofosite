@@ -45,54 +45,54 @@ def logout(request):
     return redirect('item_list')
 
 
-class MyPasswordResetView(PasswordResetView):
-    template_name = 'registration/reset_password.html'
-    html_email_template_name: str = 'registration/reset_password_email.html'
-    success_url = reverse_lazy('reset_password_sent')
+# class MyPasswordResetView(PasswordResetView):
+#     template_name = 'registration/reset_password.html'
+#     html_email_template_name: str = 'registration/reset_password_email.html'
+#     success_url = reverse_lazy('reset_password_sent')
 
-    def dispatch(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('item_list')
-        return super().dispatch(*args, **kwargs)
-
-
-class MyPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'registration/reset_password_sent.html'
-
-    def dispatch(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('item_list')
-        return super().dispatch(*args, **kwargs)
+#     def dispatch(self, *args, **kwargs):
+#         if self.request.user.is_authenticated:
+#             return redirect('item_list')
+#         return super().dispatch(*args, **kwargs)
 
 
-class MyPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'registration/reset_password_confirm.html'
-    success_url = reverse_lazy('reset_password_complete')
+# class MyPasswordResetDoneView(PasswordResetDoneView):
+#     template_name = 'registration/reset_password_sent.html'
 
-    def dispatch(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('item_list')
-        return super().dispatch(*args, **kwargs)
-
-
-class MyPasswordResetCompleteView(PasswordResetCompleteView):
-    template_name = 'registration/reset_password_complete.html'
-
-    def dispatch(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('home')
-        return super().dispatch(*args, **kwargs)
+#     def dispatch(self, *args, **kwargs):
+#         if self.request.user.is_authenticated:
+#             return redirect('item_list')
+#         return super().dispatch(*args, **kwargs)
 
 
-class MyPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
-    template_name = 'registration/change_password.html'
-    success_url = reverse_lazy('change_password_complete')
-    login_url = '/login/'
+# class MyPasswordResetConfirmView(PasswordResetConfirmView):
+#     template_name = 'registration/reset_password_confirm.html'
+#     success_url = reverse_lazy('reset_password_complete')
+
+#     def dispatch(self, *args, **kwargs):
+#         if self.request.user.is_authenticated:
+#             return redirect('item_list')
+#         return super().dispatch(*args, **kwargs)
 
 
-class MyPasswordChangeCompleteView(LoginRequiredMixin, PasswordResetCompleteView):
-    template_name = 'registration/change_password_complete.html'
-    login_url = '/login/'
+# class MyPasswordResetCompleteView(PasswordResetCompleteView):
+#     template_name = 'registration/reset_password_complete.html'
+
+#     def dispatch(self, *args, **kwargs):
+#         if self.request.user.is_authenticated:
+#             return redirect('home')
+#         return super().dispatch(*args, **kwargs)
+
+
+# class MyPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+#     template_name = 'registration/change_password.html'
+#     success_url = reverse_lazy('change_password_complete')
+#     login_url = '/login/'
+
+
+# class MyPasswordChangeCompleteView(LoginRequiredMixin, PasswordResetCompleteView):
+#     template_name = 'registration/change_password_complete.html'
+#     login_url = '/login/'
 
 
 @login_required(login_url='/login/')
