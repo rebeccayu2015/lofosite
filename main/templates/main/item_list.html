@@ -71,6 +71,7 @@
                 Claimed by: {{ item.claim_user }}
             </p>
 
+            {% if item.status == 'Claimed' %}
             <p class="item-sect"> 
                 Time claimed: {{ item.time_claimed }}
             </p>
