@@ -18,23 +18,29 @@
 
 <div class="item-form">
   <form>
-        <input type="text" id ="item-name" name="item-name" placeholder="What's the item?">
+        <div id="form-col-1"> 
+          <label for="item-name"> Item Name:</label><br>
+          <input type="text" id ="item-name" name="item-name" placeholder="What's the item?"><br>
 
-        <input type="text" id="location-found" name="location-found" placeholder="Where'd you find it?">
+          <label for="location-found"> Location Found:</label><br>
+          <input type="text" id="location-found" name="location-found" placeholder="Where'd you find it?"><br>
 
-        <input type="text" id="location-left" name="location-left" placeholder="Where'd you leave it?">
+          <label for="location-left"> Location Left:</label><br>
+          <input type="text" id="location-left" name="location-left" placeholder="Where'd you leave it?">
+        </div>
+        
+        <div id="form-col-2">
+          <label for="item-descrip"> Item Description:</label><br>
+          <input type="text" id="item-descrip" name="item-descrip" placeholder="Any important details?">
+        </div> 
 
-        <br>
+        <div id="form-col-3"> 
+          <label for="item-image"> Item Description:</label><br>
+          <input type="file" accept="image/png, image/jpeg, image/jpg" id="item-image" name="item-image">
+          
+        </div>
 
-        <!-- 
-
-        <input type="text" id="item-descrip" name="item-descrip" placeholder="Any important details?">
-
-        <input type="file" accept="image/png, image/jpeg, image/jpg">
-
-        <input type="submit" id="form-submit">
-
-        -->
+        <!-- <input type="submit" id="form-submit"> -->
 
   </form>
 </div>
