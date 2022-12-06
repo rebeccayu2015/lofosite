@@ -14,31 +14,67 @@
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 </p>
 
+{% for item in items reversed %}
 <div id="item">
 
     <div id="item-card">	
 
             <h1 id="item-head">
-                Item Name
+                {{ item.item_name }}
             </h1>
 
-            <button id="claim-button">
-                Claim Me!
-            </button>
+            {% if item.status == 'Unclaimed' %}
+                <form action="" method="POST" style="display:inline">
+                {% csrf_token %}
+                <button type="submit" id="claim-button" name="item-id" value="{{ item.item_id }}">
+                    Claim Me!
+                </button>
+                </form>
+            {% elif item.status == 'Claimed' and item.claim_user == user %}
+                <form action="" method="POST" style="display:inline">
+                {% csrf_token %}
+                <button type="submit" id="claim-button" name="item-id" value="{{ item.item_id }}">
+                    Unclaim Me!
+                </button>
+                </form>
+            {% elif item.status == 'Claimed' %}
+                <form action="" method="POST" style="display:inline">
+                {% csrf_token %}
+                <button type="submit" id="claim-button" name="item-id" value="{{ item.item_id }}" disabled>
+                    Claimed!
+                </button>
+                </form>
+            {% endif %}
         
             <p class="item-sect"> 
-                    Found at: perspiciatis unde
+                Found at: {{ item.where_found }}
             </p>
 
             <p class="item-sect"> 
-                Left at: totam rem aperiam
+                Left at: {{ item.where_left }}
             </p>
 
             <p class="item-sect"> 
-                Finder's note: Architecto beatae vitae dicta sunt explicabo. Nemo enim 
-                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                Finder's note: {{ item.description }}
             </p>
 
+            <p class="item-sect"> 
+                Found by: {{ item.curr_user }}
+            </p>
+
+            <p class="item-sect"> 
+                Time found: {{ item.time_found }}
+            </p>
+
+            {% if item.status == 'Claimed' %}
+            <p class="item-sect"> 
+                Claimed by: {{ item.claim_user }}
+            </p>
+
+            <p class="item-sect"> 
+                Time claimed: {{ item.time_claimed }}
+            </p>
+            {% endif %}
     </div>
 
     <div id="item-image">
@@ -48,39 +84,18 @@
     </div>
     
 </div>
+{% empty %}
+<p>You have no lost items.</p>
+{% endfor %}
 
-<div id="item">
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        var scrollpos = localStorage.getItem('scrollpos');
+        if (scrollpos) window.scrollTo(0, scrollpos);
+    });
 
-    <div id="item-card">	
-
-            <h1 id="item-head">
-                Item Name
-            </h1>
-
-            <button id="claim-button">
-                Claim Me!
-            </button>
-        
-            <p class="item-sect"> 
-                    Found at: perspiciatis unde
-            </p>
-
-            <p class="item-sect"> 
-                Left at: totam rem aperiam
-            </p>
-
-            <p class="item-sect"> 
-                Finder's note: Architecto beatae vitae dicta sunt explicabo. Nemo enim 
-                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
-            </p>
-
-    </div>
-
-    <div id="item-image">
-        
-        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png">
-    
-    </div>
-    
-</div>
+    window.onbeforeunload = function(e) {
+        localStorage.setItem('scrollpos', window.scrollY);
+    };
+</script>
 {% endblock %}

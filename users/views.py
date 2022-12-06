@@ -9,6 +9,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from main.models import Item
 
 # Create your views here.
 def sign_up(request):
@@ -42,7 +43,7 @@ class MyLoginView(SuccessMessageMixin, LoginView):
 def logout(request):
     auth_logout(request)
     messages.success(request, "Logged out successfully.")
-    return redirect('item_list')
+    return redirect('login')
 
 
 # class MyPasswordResetView(PasswordResetView):
@@ -106,8 +107,13 @@ def profile(request):
     else:
         form = UserUpdateForm(instance=request.user)
 
+    items_found = Item.objects.filter(curr_user=request.user)
+    items_claimed = Item.objects.filter(status="Claimed").filter(claim_user=request.user) | Item.objects.filter(status="Verified").filter(claim_user=request.user)
+
     context = {
         'form': form,
+        'items_found': items_found,
+        'items_claimed': items_claimed
     }
 
     return render(request, 'registration/profile.html', context)

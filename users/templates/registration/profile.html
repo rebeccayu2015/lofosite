@@ -15,7 +15,7 @@
 
 {% block content %}
 <div class="container">
-  <h1>Profile</h1>
+  <h1 id="page-title">Profile</h1>
   <form class="needs-validation" name="login" action="" method="POST" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
@@ -27,6 +27,28 @@
     <button class="btn btn-primary" type="submit">Update Profile</button>
   </form>
 </div>
+
+<h2 id="page-title">
+    Items Found
+</h2>
+
+<p>Number of items found: {{ items_found | length }}</p>
+
+{% for item in items_found reversed %}
+<p>Item Name: {{ item.item_name }}</p>
+<p>Time found: {{ item.time_found }}</p>
+{% endfor %}
+
+<h2 id="page-title">
+    Items Claimed
+</h2>
+
+<p>Number of items claimed: {{ items_claimed | length }}</p>
+
+{% for item in items_claimed reversed %}
+<p>Item Name: {{ item.item_name }}</p>
+<p>Time claimed: {{ item.time_claimed }}</p>
+{% endfor %}
 
 <script src={% static 'js/profile.js' %}></script>
 {% endblock %}
