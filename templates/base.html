@@ -368,6 +368,16 @@
         font-size: 16px;
       }
 
+      .navbar-brand{
+        font-family: 'Lora';
+      }
+
+      #navmenu{
+        font-family: 'Nunito Sans', sans-serif;
+      }
+
+
+
       
     </style>
 
@@ -375,7 +385,7 @@
     {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#1F1300;">
       <div class="container">
         <a class="navbar-brand" href="{% url 'item_list' %}">Lost and Found Site</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
