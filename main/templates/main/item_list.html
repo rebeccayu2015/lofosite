@@ -23,24 +23,34 @@
                 {{ item.item_name }}
             </h1>
 
-            {% if item.status == 'Unclaimed' %}
+            {% if item.status == 'Unclaimed' and item.curr_user == user %}
                 <form action="" method="POST" style="display:inline">
                 {% csrf_token %}
-                <button type="submit" id="claim-button" name="item-id" value="{{ item.item_id }}">
+                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}">
+                    Delete!
+                </button>
+                </form>
+            {% comment %} Claim button {% endcomment %}
+            {% elif item.status == 'Unclaimed' %}
+                <form action="" method="POST" style="display:inline">
+                {% csrf_token %}
+                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}">
                     Claim Me!
                 </button>
                 </form>
+            {% comment %} Unclaim button {% endcomment %}
             {% elif item.status == 'Claimed' and item.claim_user == user %}
                 <form action="" method="POST" style="display:inline">
                 {% csrf_token %}
-                <button type="submit" id="claim-button" name="item-id" value="{{ item.item_id }}">
+                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}">
                     Unclaim Me!
                 </button>
                 </form>
+            {% comment %} Claimed button {% endcomment %}
             {% elif item.status == 'Claimed' %}
                 <form action="" method="POST" style="display:inline">
                 {% csrf_token %}
-                <button type="submit" id="claim-button" name="item-id" value="{{ item.item_id }}" disabled>
+                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}" disabled>
                     Claimed!
                 </button>
                 </form>
@@ -65,33 +75,36 @@
             <p class="item-sect"> 
                 Time found: {{ item.time_found }}
             </p>
-
-            {% if item.status == 'Claimed' %}
+            
+            {% comment %} {% if item.status == 'Claimed' %}
             <p class="item-sect"> 
                 Claimed by: {{ item.claim_user }}
             </p>
+            {% endif %}
 
             {% if item.status == 'Claimed' %}
             <p class="item-sect"> 
                 Time claimed: {{ item.time_claimed }}
             </p>
-            {% endif %}
+            {% endif %} {% endcomment %}
     </div>
 
     <div id="item-image">
         
-        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png">
+        <img src="{{ item.image.url }}">
     
     </div>
     
 </div>
 {% empty %}
-<p>You have no lost items.</p>
+<p id= "page-subhead">
+  You have no lost items.
+</p>
 {% endfor %}
 
-<button title = "Add an item!" id="item-add-button">+</button>
+<button title = "Add an item!" id="item-add-button"><a id="item-add-button" href="{% url 'add_item' %}" style="text-decoration:none;">+</a></button>
 
-<script>
+{% comment %} <script>
     document.addEventListener("DOMContentLoaded", function(event) { 
         var scrollpos = localStorage.getItem('scrollpos');
         if (scrollpos) window.scrollTo(0, scrollpos);
@@ -100,5 +113,5 @@
     window.onbeforeunload = function(e) {
         localStorage.setItem('scrollpos', window.scrollY);
     };
-</script>
+</script> {% endcomment %}
 {% endblock %}

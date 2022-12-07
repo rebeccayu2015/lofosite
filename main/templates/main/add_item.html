@@ -17,21 +17,22 @@
 </p>
 
 <div class="item-form">
-  <form>
+  <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <div id="form-col-1"> 
           <label for="item-name"> Item Name:</label><br>
-          <input type="text" id ="item-name" name="item-name" placeholder="What's the item?"><br>
+          <input type="text" id ="item-name" name="item-name" placeholder="What's the item?" required><br>
 
           <label for="location-found"> Location Found:</label><br>
-          <input type="text" id="location-found" name="location-found" placeholder="Where'd you find it?"><br>
+          <input type="text" id="location-found" name="location-found" placeholder="Where'd you find it?" required><br>
 
           <label for="location-left"> Location Left:</label><br>
-          <input type="text" id="location-left" name="location-left" placeholder="Where'd you leave it?">
+          <input type="text" id="location-left" name="location-left" placeholder="Where'd you leave it?" required>
         </div>
         
         <div id="form-col-2">
           <label for="item-descrip"> Item Description:</label><br>
-          <textarea id="item-descrip" name="item-descrip" rows="20" cols="50" style="resize:none;" placeholder="Any important details?"></textarea>
+          <textarea id="item-descrip" name="item-descrip" rows="20" cols="50" style="resize:none;" placeholder="Any important details?" required></textarea>
         </div> 
 
         <div id="form-col-3"> 
@@ -41,10 +42,8 @@
           <label for="item-image" class="drop-container">
             <span class="drop-title">Drop files here</span>
             or
-            <input type="file" accept="image/png, image/jpeg, image/jpg" id="special-input" name="item-image">
+            <input type="file" accept="image/png, image/jpeg, image/jpg" id="special-input" name="item-image" required>
           </label>
-
-          
         </div>
 
         <button type="submit" id="form-submit-button"> ✓ </button> 
@@ -52,6 +51,6 @@
   </form>
 </div>
 
-<button title = "Back to item list!" id="form-back-button"> ← </button>
+<button title = "Back to item list!" id="form-back-button"><a id="form-back-button" href="{% url 'item_list' %}" style="text-decoration:none;">←</a></button>
 
 {% endblock %}
