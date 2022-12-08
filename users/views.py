@@ -36,13 +36,13 @@ def sign_up(request):
 class MyLoginView(SuccessMessageMixin, LoginView):    
     template_name = 'registration/login.html'
     success_url = ''
-    success_message = "Logged in successfully."
+    # success_message = "Logged in successfully."
     
 
 
 def logout(request):
     auth_logout(request)
-    messages.success(request, "Logged out successfully.")
+    # messages.success(request, "Logged out successfully.")
     return redirect('login')
 
 
