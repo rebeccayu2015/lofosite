@@ -26,8 +26,8 @@
             {% if item.status == 'Unclaimed' and item.curr_user == user %}
                 <form action="" method="POST" style="display:inline">
                 {% csrf_token %}
-                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}">
-                    Delete!
+                <button type="submit" id="item-delete-button" name="item-id" value="{{ item.item_id }}">
+                    Delete Me!
                 </button>
                 </form>
             {% comment %} Claim button {% endcomment %}
@@ -42,7 +42,7 @@
             {% elif item.status == 'Claimed' and item.claim_user == user %}
                 <form action="" method="POST" style="display:inline">
                 {% csrf_token %}
-                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}">
+                <button type="submit" id="item-unclaim-button" name="item-id" value="{{ item.item_id }}">
                     Unclaim Me!
                 </button>
                 </form>
@@ -50,7 +50,7 @@
             {% elif item.status == 'Claimed' %}
                 <form action="" method="POST" style="display:inline">
                 {% csrf_token %}
-                <button type="submit" id="item-claim-button" name="item-id" value="{{ item.item_id }}" disabled>
+                <button type="submit" id="item-claimed-button" name="item-id" value="{{ item.item_id }}" disabled>
                     Claimed!
                 </button>
                 </form>
