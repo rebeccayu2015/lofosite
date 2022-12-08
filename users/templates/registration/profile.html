@@ -14,8 +14,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-  <h1 id="page-title">Profile</h1>
+<div class="profile-container">
+  <h1 id="page-title2">Finder Profile</h1>
   <form class="needs-validation" name="login" action="" method="POST" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
@@ -24,31 +24,56 @@
       <p>Need to update your password? <a href={% url 'change_password' %}>Change password.</a></p>
     {% endcomment %}
 
-    <button class="btn btn-primary" type="submit">Update Profile</button>
+    <button class="btn btn-primary" type="submit" style="width: 150px;">Update Profile</button>
   </form>
 </div>
 
-<h2 id="page-title">
-    Items Found
-</h2>
+<div class="items-found-container">
+  <h2 id="page-title2">
+    Items Found ({{ items_found | length }})
+  </h2>
 
-<p>Number of items found: {{ items_found | length }}</p>
+  <table>
+    <tr>
+      <th> Item Name: </th>
+      <th> Found On:</th>
+    </tr>
 
-{% for item in items_found reversed %}
-<p>Item Name: {{ item.item_name }}</p>
-<p>Time found: {{ item.time_found }}</p>
-{% endfor %}
+    {% for item in items_found reversed %}
+    <tr>
+      <td> {{ item.item_name }} </td>
+      <td> {{ item.time_found }} </td>
+    </tr> 
+    {% endfor %}
 
-<h2 id="page-title">
-    Items Claimed
-</h2>
+  </table>
+ 
 
-<p>Number of items claimed: {{ items_claimed | length }}</p>
+</div>
 
-{% for item in items_claimed reversed %}
-<p>Item Name: {{ item.item_name }}</p>
-<p>Time claimed: {{ item.time_claimed }}</p>
-{% endfor %}
+<div class="items-claimed-container"> 
+  <h2 id="page-title2">
+    Items Claimed ({{ items_claimed | length }})
+  </h2>
+
+  <table>
+    <tr>
+      <th> Item Name: </th>
+      <th> Claimed On:</th>
+    </tr>
+
+    {% for item in items_claimed reversed %}
+    <tr>
+      <td> {{ item.item_name }} </td>
+      <td> {{ item.time_claimed }} </td>
+    </tr> 
+    {% endfor %}
+
+  </table>
+ 
+
+</div>
+
 
 <script src={% static 'js/profile.js' %}></script>
 {% endblock %}
