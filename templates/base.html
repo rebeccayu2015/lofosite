@@ -287,6 +287,102 @@
         background: #256A34;
       }
 
+      #item-claimed-button{
+        /*
+        position: absolute;
+        left: 1143px;
+        top: 468px;
+        */
+
+        width: 110px;
+        height: 40px;
+        
+        background: #ddaa20; 
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        border-width: 0px;
+
+        float: right;
+
+        color: white;
+        font-family: 'Nunito', sans-serif;
+
+        margin-top: 25px;
+        margin-right: 25px;
+
+        transition: background .2s ease-in-out;
+
+
+      } 
+
+      #item-claimed-button:hover{
+        background: #b68616;
+      }
+
+      #item-unclaim-button{
+        /*
+        position: absolute;
+        left: 1143px;
+        top: 468px;
+        */
+
+        width: 110px;
+        height: 40px;
+        
+        background: #d12c2c; 
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        border-width: 0px;
+
+        float: right;
+
+        color: white;
+        font-family: 'Nunito', sans-serif;
+
+        margin-top: 25px;
+        margin-right: 25px;
+
+        transition: background .2s ease-in-out;
+
+
+      } 
+
+      #item-unclaim-button:hover{
+        background: #9a2116;
+      }
+
+      #item-delete-button{
+        /*
+        position: absolute;
+        left: 1143px;
+        top: 468px;
+        */
+
+        width: 110px;
+        height: 40px;
+        
+        background: #d12c2c; 
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        border-width: 0px;
+
+        float: right;
+
+        color: white;
+        font-family: 'Nunito', sans-serif;
+
+        margin-top: 25px;
+        margin-right: 25px;
+
+        transition: background .2s ease-in-out;
+
+
+      } 
+
+      #item-delete-button:hover{
+        background: #9a2116;
+      }
+
       #item-image img {
         /*position: absolute;
         width: 550px;
@@ -368,6 +464,145 @@
         font-size: 16px;
       }
 
+      .navbar-brand{
+        font-family: 'Lora';
+      }
+
+      #navmenu{
+        font-family: 'Nunito Sans', sans-serif;
+      }
+
+      .needs-validation{
+        width: 400px;
+        font-family: 'Nunito', sans-serif;
+      }
+
+      #login-title{
+
+        font-family: 'Lora';
+        font-size: 42px;
+        line-height: 72px;
+        font-weight: 600;
+
+        color: #1F1300;
+
+        display: block;
+      }
+
+      .btn.btn-primary{
+        /*
+        position: absolute;
+        left: 1143px;
+        top: 468px;
+        */
+
+        width: 90px;
+        height: 40px;
+        
+        background-color: #4F96D1;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        border-width: 0px;
+
+        color: white;
+        font-family: 'Nunito', sans-serif;
+
+        transition: background .2s ease-in-out;
+
+      } 
+
+      .btn.btn-primary:hover{
+        background-color: #3b74a2;
+      }
+
+      #login-bottom{
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .login-container{
+        margin-top: 150px;
+        float: right;
+        margin-right: 150px;
+       
+      }
+
+      .signup-container{
+        margin-top: 25px;
+        float: right;
+        margin-right: 150px;
+       
+      }
+
+      .welcome-container{
+        margin-top: 250px;
+        float: left;
+        margin-left: 125px;
+
+        z-index: 0;
+      }
+
+      #welcome-title{
+        color: whitesmoke;
+        font-family: 'Lora';
+        font-size: 64px;
+      }
+
+      #welcome-subhead{
+        color: whitesmoke;
+        width: 600px;
+        padding-top: 25px;
+        font-size: 20px;
+        font-family: 'Nunito', sans-serif;
+      }
+
+      .welcome-background{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 52%;
+        height: 100%;
+        background-color:#3b74a2;
+
+        background-image: linear-gradient(to right, #5398d0d1, #3c709c );
+      }
+
+      #signup-title{
+
+        font-family: 'Lora';
+        font-size: 42px;
+        line-height: 72px;
+        font-weight: 600;
+
+        color: #1F1300;
+
+        display: block;
+
+        margin-top: 50px;
+
+      }
+
+      #hint_id_password1{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      #hint_id_password2{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      #hint_id_username{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+
+
+
+
+
+
       
     </style>
 
@@ -375,7 +610,7 @@
     {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#1F1300;">
       <div class="container">
         <a class="navbar-brand" href="{% url 'item_list' %}">Lost and Found Site</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
