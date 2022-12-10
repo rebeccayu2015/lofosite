@@ -24,7 +24,7 @@ def item_list(request):
         duration = timezone.now() - item.time_claimed
         duration_in_s = duration.total_seconds()
 
-        if duration_in_s > 15:
+        if duration_in_s > 30:
             item.status = "Verified"
             item.save()
 

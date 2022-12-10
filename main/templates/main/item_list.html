@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>WE ARE DUMB</title>
+<title>Lost Items</title>
 {% endblock %}
 
 {% block content %}
@@ -9,9 +9,9 @@
     Lost Items
 </h1>
 
+{% comment %} To Do {% endcomment %}
 <p id= "page-subhead">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    Looking for something? Here's what good samaritans have found near you!
 </p>
 
 {% for item in items reversed %}
@@ -98,7 +98,7 @@
 </div>
 {% empty %}
 <p id= "page-subhead">
-  You have no lost items.
+  No lost items available.
 </p>
 {% endfor %}
 
