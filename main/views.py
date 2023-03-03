@@ -82,3 +82,12 @@ def add_item(request):
         return redirect('add_item')
 
     return render(request, 'main/add_item.html')
+
+@login_required(login_url='/login/')
+def add_missing(request):
+    return render(request, 'main/add_missing.html')
+
+
+@login_required(login_url='/login/')
+def missing_list(request):
+    return render(request, 'main/missing_list.html')
